@@ -24,7 +24,7 @@ int main()
 
     gk.Add_Child(0);
     wk.Add_Child(0);
-    gk.Add_Child(2);
+    gk.Add_Child(3);
 
 
     //tree.printChildren(2);
