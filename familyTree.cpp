@@ -136,7 +136,10 @@ void Tree::printGrandparents(const int gid) const
 
 void Tree::printUncle(const int gid) const
 {
-    std::vector<int> uncles;
+    std::vector<int> uncles1;
+    std::vector<int> uncles2;
+    std::vector<int> uncles3;
+    std::vector<int> uncles4;
 
     Person* person = getPerson(gid);
     if(person->getPa() != -1 || person->getPb() != -1)
@@ -144,24 +147,36 @@ void Tree::printUncle(const int gid) const
         if(person->getPa() != -1)
         {
             Person* pa = getPerson(person->getPa());
-            uncles = getPerson(pa->getPa())->getChildren();
-            uncles = getPerson(pa->getPb())->getChildren();
+
+            uncles1 = getPerson(pa->getPa())->getChildren();
+            uncles2 = getPerson(pa->getPb())->getChildren();
         }
-            if(person->getPb() != -1)
+        if(person->getPb() != -1)
         {
-                Person* pb = getPerson(person->getPb());
-                uncles = getPerson(pb->getPa())->getChildren();
-                uncles = getPerson(pb->getPb())->getChildren();
+            Person* pb = getPerson(person->getPb());
+            uncles3 = getPerson(pb->getPa())->getChildren();
+            uncles4 = getPerson(pb->getPb())->getChildren();
         }
     }
 
-    int anzahl = uncles.size();
+    int anzahl = uncles1.size() + uncles2.size() +uncles3.size() +uncles4.size();
     std::cout<<"Anzahl Tanten und Onkel: "<< anzahl <<std::endl;
-    for(unsigned int i = 0; i<uncles.size(); ++i)
+    for(unsigned int i = 0; i<uncles1.size(); ++i)
         {
-            std::cout <<getPerson(uncles[i])->getName() << std::endl;
+            std::cout <<getPerson(uncles1[i])->getName() << std::endl;
         }
-
+    for(unsigned int i = 0; i<uncles2.size(); ++i)
+        {
+            std::cout <<getPerson(uncles2[i])->getName() << std::endl;
+        }
+    for(unsigned int i = 0; i<uncles3.size(); ++i)
+        {
+            std::cout <<getPerson(uncles3[i])->getName() << std::endl;
+        }
+    for(unsigned int i = 0; i<uncles4.size(); ++i)
+        {
+            std::cout <<getPerson(uncles4[i])->getName() << std::endl;
+        }
     return;
 }
 
