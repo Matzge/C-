@@ -78,7 +78,6 @@ void Tree::printSiblings(const int gid)
     {
         int anzahl = siblings.size()-1;   //-1 weil die Person selbst ja auch ein Kind ist
         std::cout << person->getName() << " hat " << anzahl << " Geschwister:" << std::endl;
-        std::cout <<person->getName() +" hat die Geschwister: "<<std::endl;
         for(unsigned int i = 0; i<siblings.size(); ++i)
         {
             if (getPerson(siblings[i]) != person)
