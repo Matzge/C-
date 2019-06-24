@@ -108,3 +108,19 @@ void Tree::printGrandparents(const int gid)
     return;
 }
 
+void Tree::printUncle(const int gid)
+{
+    Person* person = getPerson(gid);
+    if(person->getPa() != -1 || person->getPb() != -1)
+    {
+        if(person->getPa() != -1)
+        {
+            printSiblings(person->getPa());
+        }
+        if(person->getPb() != -1)
+        {
+            printSiblings(person->getPb());
+        }
+    }
+    return;
+}
