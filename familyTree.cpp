@@ -64,10 +64,7 @@ void Tree::printSiblings(const int gid)
     {
         siblings = getPerson(person->getPb())->getChildren();
     }
-    else
-    {
-        std::cout << "Beide Eltern sind unbekannt." << std::endl;
-    }
+    
     //Ausgabe
     if(siblings.size() >= 2)
     {
@@ -75,7 +72,9 @@ void Tree::printSiblings(const int gid)
         std::cout << getPerson(gid)->getName() << " hat " << anzahl << " Geschwister:" << std::endl;
         for(unsigned int i = 0; i<siblings.size()-1; ++i)
         {
-            std::cout << getPerson(siblings[i])->getName() << std::endl;
+           
+            if (getPerson(siblings[i]) != getPerson(gid))
+                std::cout << getPerson(siblings[i])->getName() << std::endl;
         }
     }
     else
