@@ -136,18 +136,32 @@ void Tree::printGrandparents(const int gid) const
 
 void Tree::printUncle(const int gid) const
 {
+    std::vector<int> uncles;
+
     Person* person = getPerson(gid);
     if(person->getPa() != -1 || person->getPb() != -1)
     {
         if(person->getPa() != -1)
         {
-            printSiblings(person->getPa());
+            Person* pa = getPerson(person->getPa());
+            uncles = getPerson(pa->getPa())->getChildren();
+            uncles = getPerson(pa->getPb())->getChildren();
         }
-        if(person->getPb() != -1)
+            if(person->getPb() != -1)
         {
-            printSiblings(person->getPb());
+                Person* pb = getPerson(person->getPb());
+                uncles = getPerson(pb->getPa())->getChildren();
+                uncles = getPerson(pb->getPb())->getChildren();
         }
     }
+
+    int anzahl = uncles.size();
+    std::cout<<"Anzahl Tanten und Onkel: "<< anzahl <<std::endl;
+    for(unsigned int i = 0; i<uncles.size(); ++i)
+        {
+            std::cout <<getPerson(uncles[i])->getName() << std::endl;
+        }
+
     return;
 }
 
