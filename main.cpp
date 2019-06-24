@@ -6,32 +6,43 @@ using namespace std;
 int main()
 {
     Tree tree;
-    Person ek(0, "Erich", "Kainz");
-    Person gk(1, "Gabi", "Kainz");
-    Person wk(2, "Wolfgang", "Kainz");
-    Person hk(3, "Hannes", "Kainz");
-    Person mm(4, "Matthias", "Mullner");
+    //Personen anlegen
+    Person hg(0, "Hans", "Gruber");
+    Person jb(1, "Julia", "Bauer");
+    Person fg(2, "Fritz", "Gruber", 0, 1);
+    Person hb(3, "Hannah", "Gruber", 0, 1);
+    Person mm(4, "Matthias", "Meier");
+    Person kh(5, "Karoline", "Hauser");
+    Person fh(6, "Franz", "Hauser", 4, 5);
+    Person jh(7, "Johannes", "Hauser", 3, 6);
+    Person sh(8, "Sabine", "Hauser", 3, 6);
+    Person ah(9, "Andrea", "Hauser", 3, 6);
+    Person lm(10, "Lukas", "Mitter");
+    Person sm(11, "Sebastian", "Mitter", 8, 10);
 
-    tree.addPerson(&ek);
-    tree.addPerson(&gk);
-    tree.addPerson(&wk);
-    tree.addPerson(&hk);
-    tree.addPerson(&mm);
+    //Personen zu Stammbaum hinzufügen
+    tree.addPerson(&hg);
+    tree.addPerson(&jb);
+    tree.addPerson(&fg);
+    tree.addPerson(&hb);
+    tree.addPerson(&mm);    
+    tree.addPerson(&kh);
+    tree.addPerson(&fh);
+    tree.addPerson(&jh);
+    tree.addPerson(&sh);
+    tree.addPerson(&ah);
+    tree.addPerson(&lm);
+    tree.addPerson(&sm);
 
-    ek.Add_Parent(1);
-    ek.Add_Parent(2);
-    hk.Add_Parent(1);
 
-    gk.Add_Child(0);
-    wk.Add_Child(0);
-    gk.Add_Child(3);
-
-
-    //tree.printChildren(2);
-    //tree.printParents(0);
-    //tree.printParents(1);
-    //tree.printParents(4);
-    tree.printSiblings(0); // Ausgabe nicht 100% okay
+    cout << "Kinder von 2:" << endl;
+    tree.printChildren(2);
+    cout << "Kinder von 6:" << endl;
+    tree.printChildren(6);
+    cout << "Eltern von 8:" << endl;
+    tree.printParents(8);
+    cout << "Geschwister von 9:" << endl;
+    tree.printSiblings(9); // Ausgabe nicht 100% okay
 
     return 0;
 }
