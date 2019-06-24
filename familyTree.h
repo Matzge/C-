@@ -15,6 +15,7 @@ public:
     void printParents(const int gid) const;
     void printSiblings(const int gid) const;
     void printGrandparents(const int gid) const;
+    void printUncle(const int gid) const;
 private:
     std::vector<Person*> _gids;
 
