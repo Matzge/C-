@@ -26,7 +26,7 @@ Person* Tree::getPerson(const int gid)
     return _gids[gid];
 }
 
-void Tree::printChildren(const int gid)
+void Tree::printChildren(const int gid) const
 {
     Person* person = getPerson(gid);
     std::vector<int> c_gids = person->getChildren();
@@ -41,7 +41,7 @@ void Tree::printChildren(const int gid)
     return;
 }
 
-void Tree::printParents(const int gid)
+void Tree::printParents(const int gid) const
 {
     Person* person = getPerson(gid);
     if(person->getPa()!= -1)
@@ -58,7 +58,7 @@ void Tree::printParents(const int gid)
     return;
 }
 
-void Tree::printSiblings(const int gid)
+void Tree::printSiblings(const int gid) const
 {
     Person* person = getPerson(gid);
     std::vector<int> siblings;
@@ -91,7 +91,7 @@ void Tree::printSiblings(const int gid)
     return;
 }
 
-void Tree::printGrandparents(const int gid)
+void Tree::printGrandparents(const int gid) const
 {
     Person* person = getPerson(gid);
     std::vector<int> gp;    //grandparents
@@ -134,7 +134,7 @@ void Tree::printGrandparents(const int gid)
     return;
 }
 
-void Tree::printUncle(const int gid)
+void Tree::printUncle(const int gid) const
 {
     Person* person = getPerson(gid);
     if(person->getPa() != -1 || person->getPb() != -1)
