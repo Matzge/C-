@@ -35,14 +35,13 @@ void Tree::printChildren(const int gid)
         for(unsigned int i = 0; i < c_gids.size(); ++i)
         {
             Person* p = getPerson(c_gids[i]);
-            std::cout << p->getName() << std::endl;
+            std::cout <<person->getName() +" hat das Kind "+ p->getName() << std::endl;
         }
     }
     else
     {
         std::cout <<  person->getName() + " hat keine Kinder" << std::endl;
     }
-    
     return;
 }
 
@@ -52,12 +51,12 @@ void Tree::printParents(const int gid)
     if(person->getPa()!= -1)
     {
         Person* p = getPerson(person->getPa());
-        std::cout << p->getName() << std::endl;
+        std::cout <<person->getName() + " hat als Elternteil "+ p->getName() << std::endl;
     }
     if(person->getPb()!= -1)
     {
         Person* p = getPerson(person->getPb());
-        std::cout << p->getName() << std::endl;
+        std::cout <<person->getName() + " hat als Elternteil "+ p->getName() << std::endl;
     }
     if((person->getPa() == -1)&&(person->getPb() == -1))
     {
@@ -79,16 +78,17 @@ void Tree::printSiblings(const int gid)
     {
         siblings = getPerson(person->getPb())->getChildren();
     }
-    
+
+
     //Ausgabe
     if(siblings.size() >= 2)
     {
         int anzahl = siblings.size()-1;   //-1 weil die Person selbst ja auch ein Kind ist
         std::cout << person->getName() << " hat " << anzahl << " Geschwister:" << std::endl;
         for(unsigned int i = 0; i<siblings.size(); ++i)
-        {           
+        {
             if (getPerson(siblings[i]) != person)
-                std::cout << getPerson(siblings[i])->getName() << std::endl;
+                std::cout <<person->getName() +" hat als Geschwisterteil "+ getPerson(siblings[i])->getName() << std::endl;
         }
     }
     else
