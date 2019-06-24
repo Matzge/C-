@@ -19,12 +19,12 @@ int main()
     Person ah(9, "Andrea", "Hauser", 3, 6);
     Person lm(10, "Lukas", "Mitter");
     Person sm(11, "Sebastian", "Mitter", 8, 10);
-    Person jh(12, "Alfred", "Gruber", 2, 15);
-    Person sh(13, "Gernot", "Gruber", 2, 15);
-    Person ah(14, "Lisa", "Gruber", 2, 15); 
-    Person lm(15, "Linda", "Kraft");
-    Person sm(16, "Max", "Gruber", 14, 11);
-    Person lm(17, "Herbert", "Stark");
+    Person ag(12, "Alfred", "Gruber", 2, 15);
+    Person gg(13, "Gernot", "Gruber", 2, 15);
+    Person lg(14, "Lisa", "Gruber", 2, 15); 
+    Person lk(15, "Linda", "Kraft");
+    Person mg(16, "Max", "Gruber", 14, 11);
+    Person hs(17, "Herbert", "Stark");
     
 
     //Personen zu Stammbaum hinzufügen
