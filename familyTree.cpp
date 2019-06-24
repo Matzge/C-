@@ -40,8 +40,7 @@ void Tree::printChildren(const int gid)
     }
     else
     {
-        Person* p = getPerson(gid);
-        std::cout << p->getName() + " hat keine Kinder" << std::endl;
+        std::cout <<  person->getName() + " hat keine Kinder" << std::endl;
     }
     
     return;
