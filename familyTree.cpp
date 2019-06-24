@@ -38,6 +38,12 @@ void Tree::printChildren(const int gid)
             std::cout << p->getName() << std::endl;
         }
     }
+    else
+    {
+        Person* p = getPerson(gid);
+        std::cout << p->getName() + " hat keine Kinder" << std::endl;
+    }
+    
     return;
 }
 
