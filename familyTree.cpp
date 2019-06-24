@@ -1,5 +1,7 @@
 #include "familyTree.h"
 
+#include <algorithm>
+
 Tree::Tree()
 {
     std::vector<Person*> _gids;
@@ -141,6 +143,8 @@ void Tree::printUncle(const int gid) const
     std::vector<int> uncles3;
     std::vector<int> uncles4;
 
+
+
     Person* person = getPerson(gid);
     if(person->getPa() != -1 || person->getPb() != -1)
     {
@@ -149,7 +153,6 @@ void Tree::printUncle(const int gid) const
             Person* pa = getPerson(person->getPa());
 
             uncles1 = getPerson(pa->getPa())->getChildren();
-
             uncles2 = getPerson(pa->getPb())->getChildren();
         }
         if(person->getPb() != -1)
@@ -157,6 +160,7 @@ void Tree::printUncle(const int gid) const
             Person* pb = getPerson(person->getPb());
             uncles3 = getPerson(pb->getPa())->getChildren();
             uncles4 = getPerson(pb->getPb())->getChildren();
+
         }
     }
 
@@ -166,11 +170,15 @@ void Tree::printUncle(const int gid) const
     uncles1.insert(uncles1.end(), uncles4.begin(), uncles4.end());
 
 
-    int anzahl = uncles1.size();
 
-    std::cout<<"Anzahl Tanten und Onkel: "<< anzahl <<std::endl;
+    std::sort(uncles1.begin(), uncles1.end());
+    uncles1.erase(unique(uncles1.begin(), uncles1.end()), uncles1.end());
+
+
+    std::cout<<"Anzahl Tanten und Onkel: "<< uncles1.size() - 2 <<std::endl;
     for(unsigned int i = 0; i<uncles1.size(); ++i)
         {
+            if (getPerson(uncles1[i]) != getPerson(person->getPa()) && (getPerson(uncles1[i]) != getPerson(person->getPb())))
             std::cout <<getPerson(uncles1[i])->getName() << std::endl;
         }
 
