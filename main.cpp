@@ -6,25 +6,25 @@ using namespace std;
 int main()
 {
     Tree tree;
-    Person ek(0, "Erich", "Kainz");
-    Person gk(1, "Gabi", "Kainz");
-    Person wk(2, "Wolfgang", "Kainz");
-    Person hk(3, "Hannes", "Kainz");
+    Person hg(0, "Hans", "Gruber");
+    Person jb(1, "Julia", "Bauer");
+    Person fg(2, "Fritz", "Gruber");
+    Person hb(3, "Hannes", "Bauer");
     Person mm(4, "Matthias", "Mullner");
 
-    tree.addPerson(&ek);
-    tree.addPerson(&gk);
-    tree.addPerson(&wk);
-    tree.addPerson(&hk);
+    tree.addPerson(&hg);
+    tree.addPerson(&jb);
+    tree.addPerson(&fg);
+    tree.addPerson(&hb);
     tree.addPerson(&mm);
 
-    ek.Add_Parent(1);
-    ek.Add_Parent(2);
-    hk.Add_Parent(1);
+    fg.Add_Parent(0);
+    fg.Add_Parent(1);
+    hb.Add_Parent(1);
 
-    gk.Add_Child(0);
-    wk.Add_Child(0);
-    gk.Add_Child(2);
+    hg.Add_Child(2);
+    jb.Add_Child(2);
+    jb.Add_Child(3);
 
 
     //tree.printChildren(2);
