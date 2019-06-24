@@ -149,6 +149,7 @@ void Tree::printUncle(const int gid) const
             Person* pa = getPerson(person->getPa());
 
             uncles1 = getPerson(pa->getPa())->getChildren();
+
             uncles2 = getPerson(pa->getPb())->getChildren();
         }
         if(person->getPb() != -1)
@@ -159,25 +160,20 @@ void Tree::printUncle(const int gid) const
         }
     }
 
-    int anzahl = uncles1.size() + uncles2.size() +uncles3.size() +uncles4.size();
+
+    uncles1.insert(uncles1.end(), uncles2.begin(), uncles2.end());
+    uncles1.insert(uncles1.end(), uncles3.begin(), uncles3.end());
+    uncles1.insert(uncles1.end(), uncles4.begin(), uncles4.end());
+
+
+    int anzahl = uncles1.size();
+
     std::cout<<"Anzahl Tanten und Onkel: "<< anzahl <<std::endl;
     for(unsigned int i = 0; i<uncles1.size(); ++i)
         {
             std::cout <<getPerson(uncles1[i])->getName() << std::endl;
         }
-    for(unsigned int i = 0; i<uncles2.size(); ++i)
-        {
-            std::cout <<getPerson(uncles2[i])->getName() << std::endl;
-        }
-    for(unsigned int i = 0; i<uncles3.size(); ++i)
-        {
-            std::cout <<getPerson(uncles3[i])->getName() << std::endl;
-        }
-    for(unsigned int i = 0; i<uncles4.size(); ++i)
-        {
-            std::cout <<getPerson(uncles4[i])->getName() << std::endl;
-        }
-    return;
+
 }
 
 
