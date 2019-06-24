@@ -21,7 +21,7 @@ void Tree::addPerson(Person* person)
     return;
 }
 
-Person* Tree::getPerson(const int gid)
+Person* Tree::getPerson(const int gid) const
 {
     return _gids[gid];
 }
