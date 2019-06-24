@@ -69,17 +69,16 @@ void Tree::printSiblings(const int gid)
     if(siblings.size() >= 2)
     {
         int anzahl = siblings.size()-1;   //-1 weil die Person selbst ja auch ein Kind ist
-        std::cout << getPerson(gid)->getName() << " hat " << anzahl << " Geschwister:" << std::endl;
-        for(unsigned int i = 0; i<siblings.size()-1; ++i)
-        {
-           
-            if (getPerson(siblings[i]) != getPerson(gid))
+        std::cout << person->getName() << " hat " << anzahl << " Geschwister:" << std::endl;
+        for(unsigned int i = 0; i<siblings.size(); ++i)
+        {           
+            if (getPerson(siblings[i]) != person)
                 std::cout << getPerson(siblings[i])->getName() << std::endl;
         }
     }
     else
     {
-        std::cout << getPerson(gid)->getName() << " hat keine Geschwister oder sie sind unbekannt." << std::endl;
+        std::cout << person->getName() << " hat keine Geschwister oder sie sind unbekannt." << std::endl;
     }
     return;
 }
