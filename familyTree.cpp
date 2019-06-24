@@ -175,7 +175,7 @@ void Tree::printUncle(const int gid) const
     uncles1.erase(unique(uncles1.begin(), uncles1.end()), uncles1.end());
 
 
-    std::cout<<"Anzahl Tanten und Onkel: "<< uncles1.size() - 2 <<std::endl;
+    std::cout<<"Anzahl Tanten und Onkel: "<< uncles1.size() - 2 <<std::endl; // -2 weil beide Eltern selbst enthalten sind
     for(unsigned int i = 0; i<uncles1.size(); ++i)
         {
             if (getPerson(uncles1[i]) != getPerson(person->getPa()) && (getPerson(uncles1[i]) != getPerson(person->getPb())))
