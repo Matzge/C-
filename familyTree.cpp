@@ -96,7 +96,7 @@ void Tree::printGrandparents(const int gid)
     Person* person = getPerson(gid);
     std::vector<int> gp;    //grandparents
     if(person->getPa() != -1 || person->getPb() != -1)
-    {  
+    {
         if(person->getPa() != -1)
         {
             Person* pa = getPerson(person->getPa());
@@ -121,14 +121,15 @@ void Tree::printGrandparents(const int gid)
                 gp.push_back(pb->getPb());
             }
         }
-        std::cout << person->getName() << " hat " << gp.size() << " Großeltern:" << std::endl;
+        std::cout << person->getName() << " hat " << gp.size() << " Groseltern:" << std::endl;
         for(unsigned int i = 0; i < gp.size(); ++i)
         {
             std::cout << getPerson(gp[i])->getName() << std::endl;
         }
+    }
     else
     {
-        std::cout << person->getName() << " hat keine bekannten Großeltern." << std::endl;
+        std::cout << person->getName() << " hat keine bekannten Groseltern." << std::endl;
     }
     return;
 }
@@ -149,3 +150,5 @@ void Tree::printUncle(const int gid)
     }
     return;
 }
+
+
