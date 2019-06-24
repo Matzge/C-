@@ -8,6 +8,16 @@ Tree::Tree()
 void Tree::addPerson(Person* person)
 {
     _gids.push_back(person);
+    if(person->getPa() != -1)
+    {
+        Person* p = _gids[person->getPa()];
+        p->Add_Child(person->getGid());
+    }
+    if(person->getPb() != -1)
+    {
+        Person* p = _gids[person->getPb()];
+        p->Add_Child(person->getGid());
+    }
     return;
 }
 
