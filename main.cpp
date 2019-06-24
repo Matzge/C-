@@ -19,12 +19,7 @@ int main()
     Person ah(9, "Andrea", "Hauser", 3, 6);
     Person lm(10, "Lukas", "Mitter");
     Person sm(11, "Sebastian", "Mitter", 8, 10);
-    Person ag(12, "Alfred", "Gruber", 2, 15);
-    Person gg(13, "Gernot", "Gruber", 2, 15);
-    Person lg(14, "Lisa", "Gruber", 2, 15); 
-    Person lk(15, "Linda", "Kraft");
-    Person mg(16, "Max", "Gruber", 14, 11);
-    Person hs(17, "Herbert", "Stark");
+    Person sm(12, "Klaus", "Grruber",2);
     
 
     //Personen zu Stammbaum hinzufügen
@@ -40,7 +35,7 @@ int main()
     tree.addPerson(&ah);
     tree.addPerson(&lm);
     tree.addPerson(&sm);
-
+    tree.addPerson(&ks);
 
     cout << "Kinder von 2:" << endl;
     tree.printChildren(2);
