@@ -10,11 +10,11 @@ class Tree
 public:
     Tree();
     void addPerson(Person* person);
-    Person* getPerson(const int gid);
-    void printChildren(const int gid);
-    void printParents(const int gid);
-    void printSiblings(const int gid);
-    void printGrandparents(const int gid);
+    Person* getPerson(const int gid) const;
+    void printChildren(const int gid) const;
+    void printParents(const int gid) const;
+    void printSiblings(const int gid) const;
+    void printGrandparents(const int gid) const;
 private:
     std::vector<Person*> _gids;
 
